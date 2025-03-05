@@ -14,7 +14,7 @@ const Navbar = ({ onSearch }) => {
   
   return (
     <header className='header-container'>
-      <img className='logo' src="/NewsAPP-Logo.png" alt="Logo prinicpal de NewsAPP" />
+      <img className='logo' src="/NewsAPP-Logo.png" alt="Logo principal de NewsAPP" />
       <nav className="navbar">
          <Link to="/negocios">Negocios</Link>
          <Link to="/entretenimiento">Entretenimiento</Link>

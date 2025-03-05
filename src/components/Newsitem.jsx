@@ -1,6 +1,6 @@
 import './Newsitem.css';
 
-const Newsitem = ({title, description, src, urlToImage}) => {
+const Newsitem = ({title, description, src, url}) => {
     return(
 <div className="card-container"> 
     <img src={src} alt="" />
