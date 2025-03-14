@@ -2,7 +2,7 @@ import { Routes, Route, useParams } from 'react-router';
 import {useState, useEffect} from 'react';
 import Navbar from './components/Navbar';
 import News from './components/News';
-
+import Footer from "./components/Footer";
 import './library.css';
 
 const NewsWithCategory = ({ searchQuery, darkMode }) => {
@@ -32,6 +32,7 @@ function App() {
           <Route path="/" element={<NewsWithCategory searchQuery={searchQuery} />} />
           <Route path="/:category" element={<NewsWithCategory searchQuery={searchQuery} />} />
         </Routes>
+        <Footer />
       </>
   );
 }

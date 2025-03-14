@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
       let response = await fetch(API_URL);
       let data = await response.json();
       setData(data.articles);
+      
 
     }; 
     useEffect(() => {
