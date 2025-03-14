@@ -40,13 +40,14 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
   background-color: var(--third-color);
   color: var(--secondary-color);
+  scroll-behavior: smooth;
 }
 
 p, a, li, span, small, strong, label, option, input {
@@ -55,7 +56,7 @@ p, a, li, span, small, strong, label, option, input {
   color: var(--secondary-color);
 }
 
-.container {padding-inline: var(--distance-2);}
+.container {padding-inline: var(--distance-4);}
 
 /*PADDINGS*/
 
@@ -191,6 +192,7 @@ p, a, li, span, small, strong, label, option, input {
 .flex-column { flex-direction: column;}
 .flex-end { justify-content: flex-end;}
 .flex-between { justify-content: space-between;}
+.self-center {justify-self: center;}
 .align-center { align-items: center;}
 .align-end { align-items: flex-end;}
 .flex-wrap { flex-wrap: wrap;}
@@ -211,6 +213,7 @@ p, a, li, span, small, strong, label, option, input {
 .width-5 { width: var(--percentage-5); }
 .width-6 { width: var(--percentage-6); }
 .width-7 { width: fit-content;}
+.width-auto {width:auto};
 
 /*HEIGHT*/
 
@@ -221,6 +224,7 @@ p, a, li, span, small, strong, label, option, input {
 .height-5 { height: var(--percentage-5); }
 .height-6 { height: var(--percentage-6); }
 .height-7 { height: fit-content; }
+.height-auto {height:auto};
 
 /*GAP*/
 
@@ -240,27 +244,27 @@ p, a, li, span, small, strong, label, option, input {
 .border-bottom {border-bottom: solid 2px var(--primary-color);}
 .border-1 {border: solid 1px var(--secondary-color);}
 
-/*------------------------------------- COMPONENTS -------------------------------------------*/
+/*-------------------------------------- STYLE COMPONENTS ---------------------------------------------*/
 
 /*NAVBAR*/
-
 .navbar {
   display: flex;
   color: var(--secondary-color);
   flex-direction: space-between;
   align-items: center;
+  padding-inline: var(--distance-1);
   gap: var(--distance-2);
   cursor: pointer;
 }
 
-.navbar span:hover {
+.navbar a:hover {
   color: var(--primary-color);
 }
 
 /*BUTTONS*/
-
 .btn {
   padding: 10px 20px;
+  width: fit-content;
   background-color: var(--primary-color);
   color: var(--third-color);
   text-transform: uppercase;
@@ -278,18 +282,19 @@ p, a, li, span, small, strong, label, option, input {
   padding: none;
 }
 
+
 /*INPUTS*/
 .input-1 {
-  gap: 0.5rem;
-  padding: 10px 20px;
+  width: 200px;
+  padding: 10px 10px;
   border: solid 2px var(--primary-color);
   background-color: var(--third-color);
-  opacity: 0.5;
   border-radius: var(--radius-4);
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 /*ANIMATION*/
-
 .moveup {
   animation-name: moveup;
   animation-duration: 2s;
@@ -301,9 +306,67 @@ p, a, li, span, small, strong, label, option, input {
 }
 
 /*LOGOS*/
-
-.logo-1 {
-  width: 250px;
+.logo{
+  width: 200px;
   height: auto;
-  overflow: hidden;
+}
+
+
+
+/*-------------------------------------- MEDIA QUERYS---------------------------------------------*/
+
+
+@media (max-width: 1186px){
+  .header-container { display: flex; flex-direction: column; }
+  .toggle-btn {padding-block-start: var(--distance-1);}
+  .form {padding-block: var(--distance-2);}
+  .news {display: grid;  grid-template-columns: repeat(3, 1fr);}
+}
+
+
+@media (max-width: 762px) {
+  .menu-btn { display: flex !important; }
+  .navbar, .form { display: none; }
+  .news {display: grid;  grid-template-columns: repeat(2, 1fr) !important; }
+}
+
+@media (max-width: 500px){
+  .news {display: grid;  grid-template-columns: repeat(1, 1fr)!important;}
+}
+
+/*-------------------------------------- DARK-MODE---------------------------------------------*/
+
+body.dark-mode {
+  background-color: var(--secondary-color);
+}
+
+body.dark-mode .header-container {
+  background-color: var(--secondary-color);
+}
+
+body.dark-mode .navbar a {
+  color: var(--third-color); 
+}
+
+body.dark-mode .navbar a:hover {
+  color: var(--primary-color); 
+}
+
+body.dark-mode .card-title {
+  color: var(--third-color);
+}
+
+body.dark-mode .card-container {
+  background-color: #424141;
+  color: var(--third-color) !important;
+  border: 2px solid;
+  outline:var(--third-color);
+}
+
+.toggle-btn {
+  background: none;
+  color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+  font-size: var(--size-2);
 }

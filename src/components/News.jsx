@@ -1,9 +1,8 @@
-import Navbar from './Navbar';
-import './News.css';
 import Newsitem from './Newsitem';
 import { useState, useEffect } from 'react';
 
-    const News = ({category, onSearch}) => {
+
+    const News = ({category, onSearch, darkMode}) => {
     const API_KEY = '90e7986adcbb45d2968aa139f91bac67';
     const [data, setData] = useState([]);
     
@@ -20,8 +19,7 @@ import { useState, useEffect } from 'react';
     }, [category, onSearch]);
   
     return (
-  
-       <div className="news container grid grid-cols-4 gap-1 flex-center">
+       <div className="news container grid grid-cols-4 gap-2 flex-center self-center alig-center m-block-3">
         { data.map((news, index) => {
           return (
             <Newsitem
@@ -30,6 +28,7 @@ import { useState, useEffect } from 'react';
               description={news.description}
               src={news.urlToImage}
               url={news.url}
+              darkMode={darkMode}
             />
           );
         })}

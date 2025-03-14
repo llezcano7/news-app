@@ -1,12 +1,17 @@
 import './Newsitem.css';
 
-const Newsitem = ({title, description, src, url}) => {
+const Newsitem = ({title, src, url, darkMode}) => {
+    const handleClick = () => {
+        window.open(url, "_blank");
+        console.log("DARKMODE EN NEWSITEM:", darkMode); // 👀 Debug
+      };
     return(
-<div className="card-container container width-2 display-flex flex-column align-center flex-center gap-1 border-1"> 
-    <img className='news-img' src={src} alt="" />
+<div className={`card-container ${darkMode ? "dark" : ""}`} onClick={handleClick}>
+  <div className='img-container'>
+     <img className='news-img' src={src} alt="" />
+  </div>
     <h5 className='card-title'>{title}</h5>
-    <p className='card-description'>{description}</p>
-    <a href={url} className='btn-secondary'>ver más</a>
+       <button className='btn'onClick = {handleClick}> more </button>
 </div>
     )
 }
