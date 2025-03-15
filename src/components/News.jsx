@@ -21,7 +21,7 @@ import { useState, useEffect } from 'react';
   
     return (
        <div className="news container grid grid-cols-4 gap-2 flex-center self-center alig-center m-block-3">
-        { data.map((news, index) => {
+        { data && Object.keys(data).length > 0 && data.map((news, index) => {
           return (
             <Newsitem
               key={index}
